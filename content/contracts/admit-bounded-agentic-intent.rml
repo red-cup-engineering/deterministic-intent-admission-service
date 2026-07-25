@@ -1,0 +1,10 @@
+#lang rmn/v2
+(map
+  ("type" "CapabilityLaw")
+  ("version" 1)
+  ("provider" "urn:ame:deterministic-intent-admission-service")
+  ("operation" "admit-bounded-agentic-intent")
+  ("precondition" "Receive one finite request naming task type, objective, desired use, context, output schema, and a consideration policy with at least one acceptable alternative. The request contains no credential-shaped field and names no model or provider.")
+  ("effect" "Return one exact BoundedInferenceWorkLotIntent whose context and output schema are preserved, whose token and difficulty ceilings can only move downward to the cell maxima, whose refinement is downward-only, and whose upward escalation is forbidden.")
+  ("postcondition" "The result requires customer acceptance and grants no model selection, provider selection, mutation, execution, payment, or completion authority.")
+  ("refusal" "Refuse non-finite or cyclic values, context larger than 131072 UTF-8 bytes, credential-shaped context, absent required fields, absent consideration alternatives, model or provider selection, or structurally invalid input."))

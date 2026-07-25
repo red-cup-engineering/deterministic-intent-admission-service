@@ -1,9 +1,9 @@
 {
-  "name": "@red-cup-engineering/deterministic-intent-admission-cell",
+  "name": "@red-cup-engineering/deterministic-intent-admission-service",
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "One Capability Cell that deterministically admits a bounded agentic request as an exact executable intent contract.",
+  "description": "A deterministic service that admits a bounded agentic request as an exact executable intent contract.",
   "keywords": [
     "agentic-orchestration",
     "intent-admission",
@@ -13,10 +13,51 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/red-cup-engineering/deterministic-intent-admission-cell.git"
+    "url": "git+https://github.com/red-cup-engineering/deterministic-intent-admission-service.git"
   },
+  "homepage": "https://deterministic-intent-admission.actions.561.group/",
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "files": [
+    "bin/",
+    "content/",
+    "src/",
+    "types/"
+  ],
+  "bin": {
+    "admit-bounded-agentic-intent": "./bin/admit-bounded-agentic-intent.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./types/index.d.mts",
+      "import": "./src/admit-bounded-agentic-intent.mjs"
+    }
+  },
+  "scripts": {
+    "check": "node --check src/admit-bounded-agentic-intent.mjs && node --check src/worker.mjs && node --check bin/admit-bounded-agentic-intent.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test && npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "x-agentic-metro-enterprise": {
+    "node-id": "deterministic-intent-admission-service",
+    "actor": "urn:ame:deterministic-intent-admission-service",
+    "organizational-kind": "capability-cell",
+    "owners": ["software-development-services-section"],
+    "operation-catalog": {
+      "admit-bounded-agentic-intent": {
+        "contractSource": "content/contracts/admit-bounded-agentic-intent.rml",
+        "action": "https://deterministic-intent-admission.actions.561.group/invoke",
+        "inputSchema": "content/schemas/admission-request.schema.json",
+        "outputSchema": "content/schemas/admission-result.schema.json",
+        "refusalSchema": "content/schemas/admission-refusal.schema.json",
+        "protocols": ["HTTPS"],
+        "legacyCompatibility": false
+      }
+    }
   }
 }
