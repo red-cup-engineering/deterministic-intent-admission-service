@@ -1,0 +1,20 @@
+{
+  "profile": "org.red-cup-engineering.capcell.v1",
+  "identity": {
+    "actor": "urn:ame:deterministic-intent-admission-service",
+    "account": "eip155:5615610:0x85e13494678eca8edf90cc0131bb0e5947bc9ce1"
+  },
+  "package": {
+    "name": "@red-cup-engineering/deterministic-intent-admission-service",
+    "version": "0.1.0"
+  },
+  "capability": {
+    "operation": "admit-bounded-agentic-intent",
+    "law": "ni:///sha-256;156EwxkfLkTZGouoNmkYyBVsWalLraXw-fctVEe16MY",
+    "kernel": "./src/admit-bounded-agentic-intent.mjs",
+    "inputSchema": "./content/schemas/admission-request.schema.json",
+    "outputSchema": "./content/schemas/admission-result.schema.json",
+    "refusalSchema": "./content/schemas/admission-refusal.schema.json"
+  },
+  "materials": []
+}

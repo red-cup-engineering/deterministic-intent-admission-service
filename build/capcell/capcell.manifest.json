@@ -1,0 +1,49 @@
+{
+  "id": "ni:///sha-256;ZqLrjfKC9qOLXae7T21JzMwpr4cHqDyW045HAxeKSzU",
+  "profile": "org.red-cup-engineering.capcell.v1",
+  "state": "unrealized",
+  "specification": "ni:///sha-256;Jh8ZXA8TRxtswBQIZM6UGVuzmsDbOT1pAK9t9brxzPo",
+  "actor": "urn:ame:deterministic-intent-admission-service",
+  "account": "eip155:5615610:0x85e13494678eca8edf90cc0131bb0e5947bc9ce1",
+  "capability": {
+    "operation": "admit-bounded-agentic-intent",
+    "law": "ni:///sha-256;156EwxkfLkTZGouoNmkYyBVsWalLraXw-fctVEe16MY",
+    "kernel": "./src/admit-bounded-agentic-intent.mjs",
+    "inputSchema": "./content/schemas/admission-request.schema.json",
+    "outputSchema": "./content/schemas/admission-result.schema.json",
+    "refusalSchema": "./content/schemas/admission-refusal.schema.json"
+  },
+  "package": {
+    "name": "@red-cup-engineering/deterministic-intent-admission-service",
+    "version": "0.1.0"
+  },
+  "body": {},
+  "providers": {},
+  "missing": [
+    "body:publicGitRepository",
+    "body:publicPackage",
+    "body:deployment",
+    "body:webIdentity",
+    "body:chainSmartAccount",
+    "body:marketOffer",
+    "body:a2aAgent",
+    "body:activityPubActor",
+    "body:x402Offer",
+    "body:customerInvocation",
+    "body:appendOnlyReceipt",
+    "provider:source-repository-hosting",
+    "provider:package-publication",
+    "provider:deployment",
+    "provider:web-identity-publication",
+    "provider:smart-account-provisioning",
+    "provider:activitypub-offer-publication",
+    "provider:market-offer-discovery",
+    "provider:a2a-task-transport",
+    "provider:ocapn-grant",
+    "provider:ocapn-admission",
+    "provider:captp-session",
+    "provider:x402-clearing",
+    "provider:rwil-receipt-append",
+    "provider:independent-conformance"
+  ]
+}
