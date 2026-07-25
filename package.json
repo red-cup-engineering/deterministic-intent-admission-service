@@ -1,0 +1,22 @@
+{
+  "name": "@red-cup-engineering/deterministic-intent-admission-cell",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "One Capability Cell that deterministically admits a bounded agentic request as an exact executable intent contract.",
+  "keywords": [
+    "agentic-orchestration",
+    "intent-admission",
+    "deterministic",
+    "capability-cell"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/deterministic-intent-admission-cell.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
