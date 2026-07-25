@@ -16,5 +16,11 @@
     "outputSchema": "./content/schemas/admission-result.schema.json",
     "refusalSchema": "./content/schemas/admission-refusal.schema.json"
   },
-  "materials": []
+  "materials": [
+    {
+      "package": "@emsenn/rmn-semantic-conformance-die",
+      "semanticId": "ni:///sha-256;ISHpcvFrffs-2wY2zhJ_PaRAo2Ma8OIDckDDBpL3_gc",
+      "authority": "none"
+    }
+  ]
 }

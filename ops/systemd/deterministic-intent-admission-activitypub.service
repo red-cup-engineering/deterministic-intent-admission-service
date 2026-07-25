@@ -1,0 +1,26 @@
+[Unit]
+Description=Deterministic Intent Admission ActivityPub offer face
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+WorkingDirectory=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-development-services-section/services/deterministic-intent-admission-service
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=15623
+Environment=ACTIVITYPUB_ORIGIN=https://bare-cedar-fog.561.group
+Environment=ACTIVITYPUB_IDENTIFIER=deterministic-intent-admission
+Environment=ACTIVITYPUB_ACTOR_NAME=Deterministic Intent Admission Service
+Environment=ACTIVITYPUB_ACTOR_SUMMARY=Publishes one canonical offer for deterministic bounded agentic intent admission.
+Environment=ACTIVITYPUB_KEYS_PATH=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-development-services-section/services/deterministic-intent-admission-service/data/activitypub/keys.json
+Environment=ACTIVITYPUB_STATE_PATH=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-development-services-section/services/deterministic-intent-admission-service/data/activitypub/state.sqlite
+Environment=ACTIVITYPUB_INBOX_BEARER_TOKEN_FILE=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-development-services-section/services/deterministic-intent-admission-service/data/activitypub/inbox-bearer.token
+Environment=ACTIVITYPUB_OUTBOX_PATH=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-development-services-section/services/deterministic-intent-admission-service/content/activitypub/outbox.json
+ExecStart=/home/emsenn/.config/nvm/versions/node/v24.13.1/bin/node /home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/web-services-section/services/activitypub-services-section/src/server.mjs
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

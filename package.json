@@ -59,5 +59,8 @@
         "legacyCompatibility": false
       }
     }
+  },
+  "dependencies": {
+    "@emsenn/rmn-semantic-conformance-die": "https://github.com/emsenn/rmn-semantic-conformance-die/releases/download/v6.0.0/emsenn-rmn-semantic-conformance-die-6.0.0.tgz"
   }
 }
