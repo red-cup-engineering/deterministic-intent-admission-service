@@ -1,7 +1,11 @@
 const FORBIDDEN = /^(?:api[-_]?key|access[-_]?token|auth[-_]?token|password|secret|credential|authorization)$/iu;
 
 function finite(value, seen = new Set()) {
-  if (value === null || ["string", "number", "boolean"].includes(typeof value)) return;
+  if (value === null || ["string", "boolean"].includes(typeof value)) return;
+  if (typeof value === "number") {
+    if (!Number.isSafeInteger(value)) throw new TypeError("canonical RMN values require safe integers");
+    return;
+  }
   if (typeof value !== "object" || seen.has(value)) throw new TypeError("finite context required");
   seen.add(value);
   for (const [key, child] of Object.entries(value)) {
@@ -9,6 +13,14 @@ function finite(value, seen = new Set()) {
     finite(child, seen);
   }
   seen.delete(value);
+}
+
+function nonnegativeInteger(value, fallback, label) {
+  const selected = value === undefined ? fallback : value;
+  if (!Number.isSafeInteger(selected) || selected < 0) {
+    throw new TypeError(`${label} must be a nonnegative safe integer`);
+  }
+  return selected;
 }
 
 function utf8ByteLength(value) {
@@ -56,12 +68,10 @@ export function admitBoundedAgenticIntent(input) {
     outputSchema: input.outputSchema,
     constraints: Object.freeze({
       considerationPolicy,
-      maxTokens: Math.min(Number.isFinite(input.maxTokens) ? input.maxTokens : 700, 700),
-      difficulty: Math.min(Number.isFinite(input.difficulty) ? input.difficulty : 0.45, 0.45),
+      maxTokens: Math.min(nonnegativeInteger(input.maxTokens, 700, "maxTokens"), 700),
       refinement: "downward-only",
       upwardEscalationAuthorized: false,
       customerAcceptanceRequired: true
     })
   });
 }
-

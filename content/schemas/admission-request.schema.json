@@ -19,8 +19,6 @@
         "acceptableAlternatives": {"type": "array", "minItems": 1}
       }
     },
-    "maxTokens": {"type": "number"},
-    "difficulty": {"type": "number"}
+    "maxTokens": {"type": "integer", "minimum": 0}
   }
 }
-

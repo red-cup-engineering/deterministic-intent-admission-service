@@ -15,7 +15,6 @@ function request(overrides = {}) {
       acceptableAlternatives: [{id: "internal-credit"}]
     },
     maxTokens: 4000,
-    difficulty: 0.9,
     ...overrides
   };
 }
@@ -23,7 +22,6 @@ function request(overrides = {}) {
 test("preserves the selected compiler's downward-only bounds", () => {
   const result = admitBoundedAgenticIntent(request());
   assert.equal(result.constraints.maxTokens, 700);
-  assert.equal(result.constraints.difficulty, 0.45);
   assert.equal(result.constraints.upwardEscalationAuthorized, false);
   assert.equal(result.constraints.customerAcceptanceRequired, true);
 });
@@ -31,6 +29,10 @@ test("preserves the selected compiler's downward-only bounds", () => {
 test("refuses model/provider choice and credential-shaped context", () => {
   assert.throws(() => admitBoundedAgenticIntent(request({requestedModel: "large"})), /selection/u);
   assert.throws(() => admitBoundedAgenticIntent(request({context: {apiKey: "do-not-admit"}})), /forbidden/u);
+});
+
+test("refuses numeric values that canonical RMN cannot carry", () => {
+  assert.throws(() => admitBoundedAgenticIntent(request({context: {ratio: 0.5}})), /canonical RMN/u);
 });
 
 test("serves an exact HTTP action and typed refusal", async () => {
@@ -48,4 +50,3 @@ test("serves an exact HTTP action and typed refusal", async () => {
   assert.equal(refused.status, 400);
   assert.equal((await refused.json()).type, "DeterministicIntentAdmissionRefusal");
 });
-

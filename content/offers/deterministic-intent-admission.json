@@ -1,10 +1,10 @@
 {
   "kind": "org.emsenn.capability-offer.v3",
-  "cell": "ni:///sha-256;FjruqPJvhpWSM2tfkjgbclrvETUyDuH7vRCebHL4I6c",
-  "sku": "ni:///sha-256;denNrr7TtRjKM71A1sDoCyQLmeS08JHG2ZTYvlNlAMI",
+  "cell": "ni:///sha-256;MJTt4OP4-nZ5VVL6DMop2Au-OK5rOqJziYhqNX0I4Po",
+  "sku": "ni:///sha-256;0qhBHTlMIsOY5rIgeK4jKfXwiDvYwLouzytUo8pmlrw",
   "provider": "urn:ame:deterministic-intent-admission-service",
   "operation": "admit-bounded-agentic-intent",
-  "law": "ni:///sha-256;156EwxkfLkTZGouoNmkYyBVsWalLraXw-fctVEe16MY",
+  "law": "ni:///sha-256;n2M3wraRzuLhGXlu3yoKB1QfiimnQercb1kTthYdhaE",
   "agentCard": "https://bare-cedar-fog.561.group/a2a/deterministic-intent-admission/.well-known/agent-card.json",
   "authorization": {
     "profile": "none",

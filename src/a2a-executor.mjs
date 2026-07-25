@@ -43,7 +43,7 @@ process.stdin.on("end", () => {
     }],
     metadata: {
       operation: "admit-bounded-agentic-intent",
-      law: "ni:///sha-256;156EwxkfLkTZGouoNmkYyBVsWalLraXw-fctVEe16MY"
+      law: "ni:///sha-256;n2M3wraRzuLhGXlu3yoKB1QfiimnQercb1kTthYdhaE"
     }
   })}\n`);
 });

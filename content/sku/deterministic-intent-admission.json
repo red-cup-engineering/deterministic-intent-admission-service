@@ -1,8 +1,8 @@
 {
-  "id": "ni:///sha-256;denNrr7TtRjKM71A1sDoCyQLmeS08JHG2ZTYvlNlAMI",
+  "id": "ni:///sha-256;0qhBHTlMIsOY5rIgeK4jKfXwiDvYwLouzytUo8pmlrw",
   "type": "StockKeepingUnit",
   "schema": "urn:emsenn:schema:stock-keeping-unit:2026-07-24",
-  "sku": "deterministic-intent-admission-service.deterministic-intent-admission/v1.admit-bounded-agentic-intent.156Ewxkf",
+  "sku": "deterministic-intent-admission-service.deterministic-intent-admission/v1.admit-bounded-agentic-intent.n2M3wraR",
   "producer": {
     "actor": "urn:ame:deterministic-intent-admission-service",
     "nodeId": "deterministic-intent-admission-service",
@@ -13,7 +13,7 @@
     "kind": "service-invocation",
     "contract": {
       "id": "deterministic-intent-admission/v1",
-      "law": "ni:///sha-256;156EwxkfLkTZGouoNmkYyBVsWalLraXw-fctVEe16MY"
+      "law": "ni:///sha-256;n2M3wraRzuLhGXlu3yoKB1QfiimnQercb1kTthYdhaE"
     },
     "operation": "admit-bounded-agentic-intent",
     "description": "Admit one finite agentic request as an exact downward-bounded inference-work-lot intent."

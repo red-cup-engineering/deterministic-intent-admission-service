@@ -12,7 +12,6 @@ export interface BoundedAgenticIntentRequest {
   outputSchema: Record<string, unknown>;
   considerationPolicy: ConsiderationPolicy;
   maxTokens?: number;
-  difficulty?: number;
 }
 
 export interface BoundedInferenceWorkLotIntent {
@@ -25,7 +24,6 @@ export interface BoundedInferenceWorkLotIntent {
   constraints: {
     considerationPolicy: ConsiderationPolicy;
     maxTokens: number;
-    difficulty: number;
     refinement: "downward-only";
     upwardEscalationAuthorized: false;
     customerAcceptanceRequired: true;
@@ -33,4 +31,3 @@ export interface BoundedInferenceWorkLotIntent {
 }
 
 export declare function admitBoundedAgenticIntent(input: BoundedAgenticIntentRequest): BoundedInferenceWorkLotIntent;
-

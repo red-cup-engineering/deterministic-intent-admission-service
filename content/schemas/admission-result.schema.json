@@ -15,11 +15,10 @@
     "constraints": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["considerationPolicy", "maxTokens", "difficulty", "refinement", "upwardEscalationAuthorized", "customerAcceptanceRequired"],
+      "required": ["considerationPolicy", "maxTokens", "refinement", "upwardEscalationAuthorized", "customerAcceptanceRequired"],
       "properties": {
         "considerationPolicy": {"type": "object"},
         "maxTokens": {"type": "number", "maximum": 700},
-        "difficulty": {"type": "number", "maximum": 0.45},
         "refinement": {"const": "downward-only"},
         "upwardEscalationAuthorized": {"const": false},
         "customerAcceptanceRequired": {"const": true}
@@ -27,4 +26,3 @@
     }
   }
 }
-
