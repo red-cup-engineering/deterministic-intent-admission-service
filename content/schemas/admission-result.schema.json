@@ -15,11 +15,10 @@
     "constraints": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["considerationPolicy", "maxTokens", "refinement", "upwardEscalationAuthorized", "customerAcceptanceRequired"],
+      "required": ["considerationPolicy", "refinement", "upwardEscalationAuthorized", "customerAcceptanceRequired"],
       "properties": {
         "considerationPolicy": {"type": "object"},
-        "maxTokens": {"type": "number", "maximum": 700},
-        "refinement": {"const": "downward-only"},
+        "refinement": {"const": "market-pressure"},
         "upwardEscalationAuthorized": {"const": false},
         "customerAcceptanceRequired": {"const": true}
       }

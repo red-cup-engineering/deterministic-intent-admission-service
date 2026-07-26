@@ -15,14 +15,6 @@ function finite(value, seen = new Set()) {
   seen.delete(value);
 }
 
-function nonnegativeInteger(value, fallback, label) {
-  const selected = value === undefined ? fallback : value;
-  if (!Number.isSafeInteger(selected) || selected < 0) {
-    throw new TypeError(`${label} must be a nonnegative safe integer`);
-  }
-  return selected;
-}
-
 function utf8ByteLength(value) {
   return new TextEncoder().encode(value).byteLength;
 }
@@ -33,6 +25,9 @@ export function admitBoundedAgenticIntent(input) {
   }
   if (["requestedModel", "model", "modelId", "provider"].some((key) => Object.hasOwn(input, key))) {
     throw new TypeError("model and provider selection are forbidden");
+  }
+  if (["maxTokens", "tokenLimit", "tokenBudget"].some((key) => Object.hasOwn(input, key))) {
+    throw new TypeError("hard token ceilings are forbidden; consideration policy and observable market pressure govern allocation");
   }
   for (const key of ["taskType", "objective", "desiredUse"]) {
     if (typeof input[key] !== "string" || !input[key]) throw new TypeError(`${key} is required`);
@@ -68,8 +63,7 @@ export function admitBoundedAgenticIntent(input) {
     outputSchema: input.outputSchema,
     constraints: Object.freeze({
       considerationPolicy,
-      maxTokens: Math.min(nonnegativeInteger(input.maxTokens, 700, "maxTokens"), 700),
-      refinement: "downward-only",
+      refinement: "market-pressure",
       upwardEscalationAuthorized: false,
       customerAcceptanceRequired: true
     })

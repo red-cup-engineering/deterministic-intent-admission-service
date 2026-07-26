@@ -14,16 +14,17 @@ function request(overrides = {}) {
       type: "ConsiderationPolicy",
       acceptableAlternatives: [{id: "internal-credit"}]
     },
-    maxTokens: 4000,
     ...overrides
   };
 }
 
-test("preserves the selected compiler's downward-only bounds", () => {
+test("admits market-pressure refinement without installing a hard token ceiling", () => {
   const result = admitBoundedAgenticIntent(request());
-  assert.equal(result.constraints.maxTokens, 700);
+  assert.equal(Object.hasOwn(result.constraints, "maxTokens"), false);
+  assert.equal(result.constraints.refinement, "market-pressure");
   assert.equal(result.constraints.upwardEscalationAuthorized, false);
   assert.equal(result.constraints.customerAcceptanceRequired, true);
+  assert.throws(() => admitBoundedAgenticIntent(request({maxTokens: 4000})), /hard token ceilings/u);
 });
 
 test("refuses model/provider choice and credential-shaped context", () => {

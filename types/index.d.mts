@@ -11,7 +11,6 @@ export interface BoundedAgenticIntentRequest {
   context: Record<string, unknown>;
   outputSchema: Record<string, unknown>;
   considerationPolicy: ConsiderationPolicy;
-  maxTokens?: number;
 }
 
 export interface BoundedInferenceWorkLotIntent {
@@ -23,8 +22,7 @@ export interface BoundedInferenceWorkLotIntent {
   outputSchema: Record<string, unknown>;
   constraints: {
     considerationPolicy: ConsiderationPolicy;
-    maxTokens: number;
-    refinement: "downward-only";
+    refinement: "market-pressure";
     upwardEscalationAuthorized: false;
     customerAcceptanceRequired: true;
   };
