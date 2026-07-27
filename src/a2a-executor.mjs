@@ -4,7 +4,7 @@ import { createHash, randomUUID } from "node:crypto";
 import {
   decodeSemantic,
   semanticBytes,
-} from "@emsenn/rmn-semantic-conformance-die";
+} from "@lenticule-science/rmn-semantic-conformance-die";
 import { admitBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
 
 function fail(message) {

@@ -18,7 +18,7 @@
   },
   "materials": [
     {
-      "package": "@emsenn/rmn-semantic-conformance-die",
+      "package": "@lenticule-science/rmn-semantic-conformance-die",
       "semanticId": "ni:///sha-256;ISHpcvFrffs-2wY2zhJ_PaRAo2Ma8OIDckDDBpL3_gc",
       "authority": "none"
     }
