@@ -43,46 +43,7 @@
   "engines": {
     "node": ">=22"
   },
-  "x-agentic-metro-enterprise": {
-    "node-id": "deterministic-intent-admission-service",
-    "actor": "urn:ame:deterministic-intent-admission-service",
-    "organizational-kind": "capability-cell",
-    "owners": [
-      "software-development-services-section"
-    ],
-    "operation-catalog": {
-      "admit-bounded-agentic-intent": {
-        "contractSource": "content/contracts/admit-bounded-agentic-intent.rml",
-        "action": "https://deterministic-intent-admission.actions.561.group/invoke",
-        "inputSchema": "content/schemas/admission-request.schema.json",
-        "outputSchema": "content/schemas/admission-result.schema.json",
-        "refusalSchema": "content/schemas/admission-refusal.schema.json",
-        "protocols": [
-          "HTTPS"
-        ],
-        "legacyCompatibility": false
-      }
-    }
-  },
   "dependencies": {
-    "@lenticule-science/rmn-semantic-conformance-die": "6.0.0"
-  },
-  "x-semiotic-voxel": {
-    "profile": "org.harmonious-union.semiotic-voxel.v1",
-    "owner": "red-cup-engineering",
-    "kind": "capability-cell",
-    "actor": "urn:ame:deterministic-intent-admission-service",
-    "operations": [
-      "admit-bounded-agentic-intent"
-    ],
-    "capabilities": [
-      {
-        "capability": "deterministic-intent-admission-service",
-        "faces": [
-          "admit-bounded-agentic-intent"
-        ]
-      }
-    ],
-    "package": "@red-cup-engineering/deterministic-intent-admission-service"
+    "@lenticule-science/rmn-semantic-conformance-die": "6.0.1"
   }
 }
