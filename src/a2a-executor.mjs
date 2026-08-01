@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { createHash, randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
+import { rawNiUri } from "@red-cup-engineering/rmn-semantic-conformance-die/canonical-cbor";
 import {
   decodeSemantic,
   semanticBytes,
@@ -19,7 +20,7 @@ function requestBytes(message) {
   if (bytes.length === 0 || bytes.toString("base64") !== candidates[0].raw) {
     fail("A2A request RMN bytes are empty or noncanonical base64");
   }
-  const identity = `ni:///sha-256;${createHash("sha256").update(bytes).digest("base64url")}`;
+  const identity = rawNiUri(bytes);
   if (candidates[0].metadata?.ni !== identity) fail("A2A request RMN identity does not match its bytes");
   return bytes;
 }
@@ -31,7 +32,7 @@ process.stdin.on("end", () => {
   const request = decodeSemantic(requestBytes(JSON.parse(source)));
   const result = admitBoundedAgenticIntent(request);
   const bytes = semanticBytes(result);
-  const ni = `ni:///sha-256;${createHash("sha256").update(bytes).digest("base64url")}`;
+  const ni = rawNiUri(bytes);
   process.stdout.write(`${JSON.stringify({
     messageId: randomUUID(),
     role: "ROLE_AGENT",
