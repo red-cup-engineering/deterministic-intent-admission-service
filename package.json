@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/deterministic-intent-admission-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "type": "module",
   "description": "A deterministic service that admits a bounded agentic request as an exact executable intent contract.",
@@ -21,13 +21,13 @@
     "provenance": true
   },
   "files": [
-    "bin/",
+    "scripts/",
     "content/",
     "src/",
     "types/"
   ],
   "bin": {
-    "admit-bounded-agentic-intent": "./bin/admit-bounded-agentic-intent.mjs"
+    "admit-bounded-agentic-intent": "./scripts/admit-bounded-agentic-intent.mjs"
   },
   "exports": {
     ".": {
@@ -36,7 +36,7 @@
     }
   },
   "scripts": {
-    "check": "node --check src/admit-bounded-agentic-intent.mjs && node --check src/worker.mjs && node --check bin/admit-bounded-agentic-intent.mjs",
+    "check": "node --check src/admit-bounded-agentic-intent.mjs && node --check src/worker.mjs && node --check scripts/admit-bounded-agentic-intent.mjs",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run check && npm test && npm pack --dry-run"
   },
