@@ -43,7 +43,7 @@
     "provider:ocapn-admission",
     "provider:captp-session",
     "provider:x402-clearing",
-    "provider:rwil-receipt-append",
+    "provider:witness-journal-receipt-append",
     "provider:independent-conformance"
   ]
 }
