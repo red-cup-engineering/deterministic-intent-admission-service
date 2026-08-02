@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import { randomUUID } from "node:crypto";
-import { rawNiUri } from "@red-cup-engineering/rmn-semantic-conformance-die/canonical-cbor";
+import { rawNiUri } from "@red-cup-engineering/relation-model-notation-runtime/canonical-cbor";
 import {
   decodeSemantic,
   semanticBytes,
-} from "@red-cup-engineering/rmn-semantic-conformance-die";
+} from "@red-cup-engineering/relation-model-notation-runtime";
 import { admitBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
 
 function fail(message) {
@@ -43,8 +43,7 @@ process.stdin.on("end", () => {
       mediaType: "application/rmn+cbor"
     }],
     metadata: {
-      operation: "admit-bounded-agentic-intent",
-      law: "ni:///sha-256;n2M3wraRzuLhGXlu3yoKB1QfiimnQercb1kTthYdhaE"
+      operation: "admit-bounded-agentic-intent"
     }
   })}\n`);
 });
