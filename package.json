@@ -10,7 +10,7 @@
     "deterministic",
     "capability-cell"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/red-cup-engineering/deterministic-intent-admission-service.git"
@@ -45,5 +45,9 @@
   },
   "dependencies": {
     "@red-cup-engineering/relation-model-notation-runtime": "7.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
   }
 }
