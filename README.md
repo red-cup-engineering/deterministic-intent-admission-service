@@ -21,3 +21,5 @@ Stable action:
 The action refuses model/provider selection, credential-shaped context,
 cyclic or unbounded context, absent consideration alternatives, and any request
 to increase the hard token ceiling.
+
+[Published source revisions and downloads](data/releases/README.md)
