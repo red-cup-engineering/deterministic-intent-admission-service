@@ -6,7 +6,7 @@ import {
   decodeSemantic,
   semanticBytes,
 } from "@red-cup-engineering/relation-model-notation-runtime";
-import { admitBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
+import { validateBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
 
 function fail(message) {
   throw new TypeError(message);
@@ -30,7 +30,7 @@ process.stdin.setEncoding("utf8");
 process.stdin.on("data", (chunk) => { source += chunk; });
 process.stdin.on("end", () => {
   const request = decodeSemantic(requestBytes(JSON.parse(source)));
-  const result = admitBoundedAgenticIntent(request);
+  const result = validateBoundedAgenticIntent(request);
   const bytes = semanticBytes(result);
   const ni = rawNiUri(bytes);
   process.stdout.write(`${JSON.stringify({
