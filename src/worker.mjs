@@ -1,4 +1,4 @@
-import { validateBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
+import { admitBoundedAgenticIntent } from "./admit-bounded-agentic-intent.mjs";
 
 const ACTION = "https://deterministic-intent-admission.actions.561.group/invoke";
 
@@ -23,7 +23,7 @@ export default {
     if (request.method === "POST" && url.pathname === "/invoke") {
       try {
         const source = await request.json();
-        return json(validateBoundedAgenticIntent(source));
+        return json(admitBoundedAgenticIntent(source));
       } catch (error) {
         return json({
           type: "DeterministicIntentAdmissionRefusal",

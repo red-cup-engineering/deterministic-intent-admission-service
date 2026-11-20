@@ -19,7 +19,7 @@ function utf8ByteLength(value) {
   return new TextEncoder().encode(value).byteLength;
 }
 
-export function validateBoundedAgenticIntent(input) {
+export function admitBoundedAgenticIntent(input) {
   if (!input || typeof input !== "object" || Array.isArray(input)) {
     throw new TypeError("intent request must be an object");
   }
